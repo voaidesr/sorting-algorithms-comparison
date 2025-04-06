@@ -1,13 +1,11 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "merge_sort.h"
 
-void mergeSort(vector<int>& v) {
+void mergeSort(std::vector<int>& v) {
     if (v.size() <= 1) return;
 
     size_t mid = v.size() / 2;
-    vector<int> left(v.begin(), v.begin() + mid);
-    vector<int> right(v.begin() + mid, v.end());
+    std::vector<int> left(v.begin(), v.begin() + mid);
+    std::vector<int> right(v.begin() + mid, v.end());
 
     mergeSort(left);
     mergeSort(right);
