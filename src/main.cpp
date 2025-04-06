@@ -6,13 +6,17 @@
 #include <functional>
 #include "merge_sort.h"
 #include "quick_sort.h"
+#include "radix_sort.h"
 
 std::map<std::string, std::function<void(std::vector<int>&)>> sort_map = {
     {"quickSortHalfPivot", quickSortHalfPivot},
     {"quickSortMedianPivot", quickSortMedianPivot},
     {"quickSortRandomPivot", quickSortRandomPivot},
     {"ternaryQuickSort", ternaryQuickSort},
-    {"merge", mergeSort}
+    {"merge", mergeSort},
+    {"radix10", radixSortBase10},
+    {"radix16", radixSortBase16},
+    {"radix65536", radixSortBase65536}
 };
 
 void printArray(const std::vector<int>& v) {
