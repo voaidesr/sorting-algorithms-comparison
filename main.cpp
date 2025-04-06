@@ -3,10 +3,8 @@
 #include <vector>
 using namespace std;
 
-template<typename  T>
-void mergeSort(vector<T>& v);
+void mergeSort(vector<int>& v);
 
 int main() {
-
     return 0;
 }
