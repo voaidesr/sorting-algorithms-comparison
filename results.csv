@@ -1,0 +1,9 @@
+testname,algorithm,n,maxvalue,time_ms
+small_test,MergeSort,1000000,10000,80.0376
+small_test,QuickSortHalfPivot,1000000,10000,245.159
+small_test,QuickSortMedianPivot,1000000,10000,49.4011
+small_test,QuickSortRandomPIvot,1000000,10000,573.829
+small_test,TernaryQuickSort,1000000,10000,54.4717
+small_test,RadixSortBase10,1000000,10000,15.8717
+small_test,RadixSortBase16,1000000,10000,6.36446
+small_test,RadixSortBase65536,1000000,10000,3.6721

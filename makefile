@@ -6,9 +6,9 @@ SRC = src
 
 all: $(TARGET)
 
-$(TARGET): $(SRC)/main.cpp $(SRC)/quick_sort.cpp $(SRC)/merge_sort.cpp $(SRC)/radix_sort.cpp
+$(TARGET): $(SRC)/main.cpp $(SRC)/quick_sort.cpp $(SRC)/merge_sort.cpp $(SRC)/radix_sort.cpp $(SRC)/test_utils.cpp
 	@mkdir -p bin
-	$(CXX) $(CXXFLAGS) -I$(INCLUDE) $^ -o $@
+	@$(CXX) $(CXXFLAGS) -I$(INCLUDE) $^ -o $@
 
 clean:
-	rm -f $(TARGET)
+	@rm -rf bin

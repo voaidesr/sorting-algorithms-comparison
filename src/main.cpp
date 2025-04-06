@@ -7,6 +7,7 @@
 #include "merge_sort.h"
 #include "quick_sort.h"
 #include "radix_sort.h"
+#include "test_utils.h"
 
 std::map<std::string, std::function<void(std::vector<int>&)>> sort_map = {
     {"quickSortHalfPivot", quickSortHalfPivot},
@@ -26,30 +27,63 @@ void printArray(const std::vector<int>& v) {
     std::cout << "\n";
 }
 
-int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        std::cerr << "Usage: ./bin/main <sort_name>\n";
-        return 1;
-    }
+int main() {
+    auto tests = readTestConfigs("test_config.csv");
+    std::ofstream resultFile("results.csv");
+    writeHeader(resultFile);
 
-    std::string sort_name = argv[1];
-    std::vector<int> v = {5, 2, 9, 1, 5, 6};
+    for (const auto& test : tests) {
+        auto original = generateRandomVector(test.N, test.maxVal);
 
-    std::cout << "Original array:\n";
-    printArray(v);
-
-    if (sort_map.find(sort_name) == sort_map.end()) {
-        std::cerr << "Invalid sort name. Available options are:\n";
-        for (const auto &[name, _] : sort_map) {
-            std::cout << "[+] " << name << "\n";
+        {
+            std::vector<int> v = original;
+            double t = measureTime(mergeSort, v);
+            logResult(resultFile, test.name, "MergeSort", test.N, test.maxVal, t);
         }
-        return 1;
+
+        {
+            std::vector<int> v = original;
+            double t = measureTime(quickSortHalfPivot, v);
+            logResult(resultFile, test.name, "QuickSortHalfPivot", test.N, test.maxVal, t);
+        }
+
+        {
+            std::vector<int> v = original;
+            double t = measureTime(quickSortMedianPivot, v);
+            logResult(resultFile, test.name, "QuickSortMedianPivot", test.N, test.maxVal, t);
+        }
+
+        {
+            std::vector<int> v = original;
+            double t = measureTime(quickSortRandomPivot, v);
+            logResult(resultFile, test.name, "QuickSortRandomPIvot", test.N, test.maxVal, t);
+        }
+
+        {
+            std::vector<int> v = original;
+            double t = measureTime(ternaryQuickSort, v);
+            logResult(resultFile, test.name, "TernaryQuickSort", test.N, test.maxVal, t);
+        }
+
+        {
+            std::vector<int> v = original;
+            double t = measureTime(radixSortBase10, v);
+            logResult(resultFile, test.name, "RadixSortBase10", test.N, test.maxVal, t);
+        }
+
+        {
+            std::vector<int> v = original;
+            double t = measureTime(radixSortBase16, v);
+            logResult(resultFile, test.name, "RadixSortBase16", test.N, test.maxVal, t);
+        }
+
+        {
+            std::vector<int> v = original;
+            double t = measureTime(radixSortBase65536, v);
+            logResult(resultFile, test.name, "RadixSortBase65536", test.N, test.maxVal, t);
+        }
     }
 
-    sort_map[sort_name](v);
-
-    std::cout << "Sorted array:\n";
-    printArray(v);
-
+    std::cout << "Benchmarking complete. See results.csv\n";
     return 0;
 }
