@@ -5,6 +5,7 @@
 #include <vector>
 #include <fstream>
 #include <chrono>
+#include <iostream>
 
 struct TestConfig {
     std::string name;
@@ -19,7 +20,11 @@ bool isSorted(const std::vector<int>& v);
 template <typename Func>
 double measureTime(Func sort, std::vector<int>& v) {
     auto start = std::chrono::high_resolution_clock::now();
-    sort(v);
+    try {
+        sort(v);
+    } catch (const std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
     auto end = std::chrono::high_resolution_clock::now();
     return std::chrono::duration<double>(end - start).count();
 }
