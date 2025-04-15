@@ -9,6 +9,8 @@
 #include "radix_sort.h"
 #include "intro_sort.h"
 #include "test_utils.h"
+#include "shell_sort.h"
+#include "tim_sort.h"
 
 std::map<std::string, std::function<void(std::vector<int>&)>> sort_map = {
     {"quickSortHalfPivot", quickSortHalfPivot},
@@ -19,7 +21,9 @@ std::map<std::string, std::function<void(std::vector<int>&)>> sort_map = {
     {"radix10", radixSortBase10},
     {"radix16", radixSortBase16},
     {"radix65536", radixSortBase65536},
-    {"intro", introSort}
+    {"intro", introSort},
+    {"shell", shellsort},
+    {"tim", timsort}
 };
 
 void printAvailableSorts() {
