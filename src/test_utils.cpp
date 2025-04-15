@@ -42,10 +42,10 @@ bool isSorted(const std::vector<int>& v) {
 }
 
 void writeHeader(std::ofstream& out) {
-    out << "testname,algorithm,n,maxvalue,time_ms\n";
+    out << "testname,algorithm,n,maxvalue,time_s,success\n";
 }
 
 void logResult(std::ofstream& out, const std::string& testName, const std::string& algorithm,
-               int N, int maxVal, double time) {
-    out << testName << "," << algorithm << "," << N << "," << maxVal << "," << time << "\n";
+               int N, int maxVal, double time, bool sorted) {
+    out << testName << "," << algorithm << "," << N << "," << maxVal << "," << time << "," << sorted << "\n";
 }

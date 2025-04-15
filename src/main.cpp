@@ -7,6 +7,7 @@
 #include "merge_sort.h"
 #include "quick_sort.h"
 #include "radix_sort.h"
+#include "intro_sort.h"
 #include "test_utils.h"
 
 std::map<std::string, std::function<void(std::vector<int>&)>> sort_map = {
@@ -17,7 +18,8 @@ std::map<std::string, std::function<void(std::vector<int>&)>> sort_map = {
     {"merge", mergeSort},
     {"radix10", radixSortBase10},
     {"radix16", radixSortBase16},
-    {"radix65536", radixSortBase65536}
+    {"radix65536", radixSortBase65536},
+    {"intro", introSort}
 };
 
 void printArray(const std::vector<int>& v) {
@@ -35,52 +37,10 @@ int main() {
     for (const auto& test : tests) {
         auto original = generateRandomVector(test.N, test.maxVal);
 
-        {
+        for (const auto& [name, sortFunction] : sort_map) {
             std::vector<int> v = original;
-            double t = measureTime(mergeSort, v);
-            logResult(resultFile, test.name, "MergeSort", test.N, test.maxVal, t);
-        }
-
-        {
-            std::vector<int> v = original;
-            double t = measureTime(quickSortHalfPivot, v);
-            logResult(resultFile, test.name, "QuickSortHalfPivot", test.N, test.maxVal, t);
-        }
-
-        {
-            std::vector<int> v = original;
-            double t = measureTime(quickSortMedianPivot, v);
-            logResult(resultFile, test.name, "QuickSortMedianPivot", test.N, test.maxVal, t);
-        }
-
-        {
-            std::vector<int> v = original;
-            double t = measureTime(quickSortRandomPivot, v);
-            logResult(resultFile, test.name, "QuickSortRandomPIvot", test.N, test.maxVal, t);
-        }
-
-        {
-            std::vector<int> v = original;
-            double t = measureTime(ternaryQuickSort, v);
-            logResult(resultFile, test.name, "TernaryQuickSort", test.N, test.maxVal, t);
-        }
-
-        {
-            std::vector<int> v = original;
-            double t = measureTime(radixSortBase10, v);
-            logResult(resultFile, test.name, "RadixSortBase10", test.N, test.maxVal, t);
-        }
-
-        {
-            std::vector<int> v = original;
-            double t = measureTime(radixSortBase16, v);
-            logResult(resultFile, test.name, "RadixSortBase16", test.N, test.maxVal, t);
-        }
-
-        {
-            std::vector<int> v = original;
-            double t = measureTime(radixSortBase65536, v);
-            logResult(resultFile, test.name, "RadixSortBase65536", test.N, test.maxVal, t);
+            double t = measureTime(sortFunction, v);
+            logResult(resultFile, test.name, name, test.N, test.maxVal, t, isSorted(v));
         }
     }
 

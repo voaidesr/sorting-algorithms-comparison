@@ -21,11 +21,11 @@ double measureTime(Func sort, std::vector<int>& v) {
     auto start = std::chrono::high_resolution_clock::now();
     sort(v);
     auto end = std::chrono::high_resolution_clock::now();
-    return std::chrono::duration<double, std::milli>(end - start).count();
+    return std::chrono::duration<double>(end - start).count();
 }
 
 void writeHeader(std::ofstream& out);
 void logResult(std::ofstream& out, const std::string& testName, const std::string& algorithm,
-    int N, int maxVal, double time);
+    int N, int maxVal, double time, bool sorted);
 
 #endif
