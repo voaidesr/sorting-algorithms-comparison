@@ -4,6 +4,6 @@
 \contentsline {section}{\numberline {3}Complexitate teoretică}{2}{section.3}%
 \contentsline {section}{\numberline {4}Implementare}{3}{section.4}%
 \contentsline {section}{\numberline {5}Metodologie experimentală}{3}{section.5}%
-\contentsline {section}{\numberline {6}Rezultate experimentale}{3}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Observații}{3}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Concluzii}{3}{section.7}%
+\contentsline {section}{\numberline {6}Rezultate experimentale}{4}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Numere putine, valori dispersate}{4}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Concluzii}{4}{section.7}%

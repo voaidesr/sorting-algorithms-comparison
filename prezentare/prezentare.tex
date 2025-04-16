@@ -8,6 +8,7 @@
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{geometry}
+\usepackage{ragged2e}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{color}
@@ -88,28 +89,40 @@
 
 \section{Implementare}
 
-Toți algoritmii au fost implementați în limbajul C++. Codul sursă este disponibil în secțiunea anexă.
+\begin{justify}
+Toți algoritmii au fost organizați într-un repository GitHub, structurat clar.
+Fiecare algoritm de sortare are propriul său header dedicat în folderul include/, iar
+implementarea este realizată în fișiere .cpp separate.
+\end{justify}
+
 
 \section{Metodologie experimentală}
 
-Pentru testarea performanțelor am generat vectori de diferite dimensiuni și structuri:
-\begin{itemize}
-    \item vectori complet aleatori
-    \item vectori sortați crescător
-    \item vectori sortați descrescător
-\end{itemize}
-Fiecare algoritm a fost rulat de 10 ori pentru fiecare configurație, iar timpul mediu de execuție a fost înregistrat folosind funcționalități de măsurare a timpului din <chrono>.
+Pentru testarea performanțelor, am creat un sistem automatizat de rulare și înregistrare a testelor, organizat în jurul fișierului principal \texttt{main.cpp}. Setările fiecărui test sunt definite într-un fișier de configurare \texttt{test\_config.csv}, unde fiecare linie specifică: \texttt{nameoftest, numberofvalues, maxvalue}. Aceste configurații sunt parcurse și procesate cu ajutorul funcției \texttt{readTestConfigs()}, iar pentru fiecare algoritm de sortare implementat în sistem, se generează un vector aleatoriu corespunzător parametrilor testului.
+
+Toți algoritmii sunt înregistrați într-un map, ce permite selectarea și rularea lor pe baza numelui.
+
+Timpul de execuție pentru fiecare sortare este măsurat cu funcția \texttt{measureTime()}, iar rezultatele sunt salvate în fișierul \texttt{results.csv}, folosind funcția \texttt{logResult()} incluzând: numele testului, algoritmul, dimensiunea vectorului, valoarea maximă, timpul de execuție (în secunde) și dacă vectorul rezultat este sortat corect.
+
+Pentru o testare completă, aplicația poate fi rulată cu comanda \texttt{./main all}, caz în care se rulează toți algoritmii în toate testele definite.
+
+\bigskip
+
+Fiecare algoritm este rulat o singură dată per configurație, iar logica poate fi extinsă ușor pentru repetare multiplă și calculul unei medii. Măsurarea timpului s-a realizat utilizând funcționalități din biblioteca standard \texttt{<chrono>}.
 
 \section{Rezultate experimentale}
 
+\subsection{Numere putine, valori dispersate}
 \begin{figure}[H]
-\centering
-\caption{Performanța în funcție de dimensiunea vectorului (medie pe 10 rulari)}
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_020108.png} % Replace with your image file path and name
+    \caption{Pentru 1000 de numere si valori intre 0 si $10^9$}
 \end{figure}
 
-\subsection{Observații}
 
-Se poate observa că algoritmii cu complexitate $\mathcal{O}(n^2)$ devin rapid ineficienți pe vectori mari. Quick Sort este foarte performant în medie, dar instabil în cazuri nefavorabile. Merge Sort oferă performanță constantă, iar Heap Sort are o implementare mai complicată, dar robustă.
+
+
+
 
 \section{Concluzii}
 

@@ -1,6 +1,12 @@
 testname,algorithm,n,maxvalue,time_s,success
-small_test,quickSortRandomPivot,100000000,10000,29.1364,1
-small_test,quickSortHalfPivot,100000000,10000,4.3825,1
-small_test,ternaryQuickSort,100000000,10000,4.40663,1
-small_test,tim,100000000,10000,7.84494,1
-small_test,radix10,100000000,10000,2.28279,1
+few_numbers_many_values,intro,1000000,1000,0.0466941,1
+few_numbers_many_values,merge,1000000,1000,0.0729413,1
+few_numbers_many_values,quickSortHalfPivot,1000000,1000,0.0337195,1
+few_numbers_many_values,quickSortMedianPivot,1000000,1000,0.0368085,1
+few_numbers_many_values,quickSortRandomPivot,1000000,1000,0.291018,1
+few_numbers_many_values,radix10,1000000,1000,0.0134547,1
+few_numbers_many_values,radix16,1000000,1000,0.0169383,1
+few_numbers_many_values,radix65536,1000000,1000,0.00455566,1
+few_numbers_many_values,shell,1000000,1000,0.0939581,1
+few_numbers_many_values,ternaryQuickSort,1000000,1000,0.03503,1
+few_numbers_many_values,tim,1000000,1000,0.0499674,1
