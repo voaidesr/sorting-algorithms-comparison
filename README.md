@@ -15,3 +15,7 @@ To see the name of the sorting functions, run:
 ```bash
 ./bin/main
 ```
+To run the tests on all sorting functions:
+```bash
+./bin/main all
+```

@@ -60,6 +60,28 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
+    if (command == "all") {
+        auto tests = readTestConfigs("test_config.csv");
+        std::ofstream resultFile("results.csv", std::ios::app);
+
+        if (!resultFile.is_open()) {
+            std::cerr << "Failed to open results.csv for appending\n";
+            return 1;
+        }
+
+        for (const auto& [sortName, sortFunction] : sort_map) {
+            for (const auto& test : tests) {
+                auto original = generateRandomVector(test.N, test.maxVal);
+                std::vector<int> v = original;
+                double t = measureTime(sortFunction, v);
+                logResult(resultFile, test.name, sortName, test.N, test.maxVal, t, isSorted(v));
+            }
+        }
+
+        std::cout << "Benchmarking complete for all sorts. See results.csv\n";
+        return 0;
+    }
+
     if (sort_map.find(command) == sort_map.end()) {
         std::cerr << "Error: Invalid sorting algorithm. Please choose from the following:\n";
         printAvailableSorts();
