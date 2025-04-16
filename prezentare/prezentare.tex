@@ -1,0 +1,141 @@
+\documentclass[12pt]{article}
+\usepackage[romanian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{color}
+\geometry{a4paper, margin=2.5cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Grupa 151}
+\lhead{Tema 1 de laborator}
+\cfoot{\thepage}
+
+\title{\textbf{Tema 1 de laborator}}
+\author{Aioanei Florin \and Verzotti Matteo \and Voaides Robert}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+    \textbf{Compararea unor algoritmi de sortare prin comportamentul lor asupra mai multor suite de teste}\\
+\end{center}
+
+\vspace{1cm}
+
+\tableofcontents
+\newpage
+
+\section{Introducere}
+
+În această lucrare ne propunem să comparăm performanțele mai multor algoritmi de sortare din punct de vedere al complexității teoretice și al performanței practice. Scopul este de a evidenția avantajele și dezavantajele fiecărui algoritm în funcție de dimensiunea și natura datelor de intrare.
+
+\section{Algoritmi analizați}
+
+\begin{itemize}
+    \item Quick Sort
+    \begin{itemize}
+        \item Random Pivot
+        \item Median Pivot
+        \item Half Pivot
+        \item Ternary Quick Sort
+    \end{itemize}
+    \item Radix Sort
+    \begin{itemize}
+        \item base 10
+        \item base 16
+        \item base $2^{16}$
+    \end{itemize}
+    \item Merge Sort
+    \item Intro Sort
+    \item Tim Sort
+    \item Shell Sort
+\end{itemize}
+
+\section{Complexitate teoretică}
+
+\begin{table}[H]
+    \centering
+    \caption{Tabel comparativ al complexităților algoritmilor analizați}
+    \begin{tabular}{lccc}
+    \toprule
+    \textbf{Algoritm} & \textbf{Best case} & \textbf{Average} & \textbf{Worst Case} \\
+    \midrule
+    Quick Sort (Random Pivot) & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n^2)$ \\
+    Quick Sort (Median Pivot) & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ \\
+    Quick Sort (Half Pivot)   & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n^2)$ \\
+    Ternary Quick Sort        & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n^2)$ \\
+    Radix Sort (base 10)      & $\mathcal{O}(nk)$       & $\mathcal{O}(nk)$       & $\mathcal{O}(nk)$ \\
+    Radix Sort (base 16)      & $\mathcal{O}(nk)$       & $\mathcal{O}(nk)$       & $\mathcal{O}(nk)$ \\
+    Radix Sort ($2^{16}$)     & $\mathcal{O}(nk)$       & $\mathcal{O}(nk)$       & $\mathcal{O}(nk)$ \\
+    Merge Sort                & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ \\
+    Intro Sort                & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ \\
+    Tim Sort                  & $\mathcal{O}(n)$        & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n \log n)$ \\
+    Shell Sort                & $\mathcal{O}(n \log n)$ & $\mathcal{O}(n^{5/4})$  & $\mathcal{O}(n^2)$ \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+\section{Implementare}
+
+Toți algoritmii au fost implementați în limbajul C++. Codul sursă este disponibil în secțiunea anexă.
+
+\section{Metodologie experimentală}
+
+Pentru testarea performanțelor am generat vectori de diferite dimensiuni și structuri:
+\begin{itemize}
+    \item vectori complet aleatori
+    \item vectori sortați crescător
+    \item vectori sortați descrescător
+\end{itemize}
+Fiecare algoritm a fost rulat de 10 ori pentru fiecare configurație, iar timpul mediu de execuție a fost înregistrat folosind funcționalități de măsurare a timpului din <chrono>.
+
+\section{Rezultate experimentale}
+
+\begin{figure}[H]
+\centering
+\caption{Performanța în funcție de dimensiunea vectorului (medie pe 10 rulari)}
+\end{figure}
+
+\subsection{Observații}
+
+Se poate observa că algoritmii cu complexitate $\mathcal{O}(n^2)$ devin rapid ineficienți pe vectori mari. Quick Sort este foarte performant în medie, dar instabil în cazuri nefavorabile. Merge Sort oferă performanță constantă, iar Heap Sort are o implementare mai complicată, dar robustă.
+
+\section{Concluzii}
+
+\begin{itemize}
+    \item Algoritmii simpli sunt potriviți doar pentru seturi mici de date.
+    \item Quick Sort este ideal pentru cazuri generale, dar trebuie tratat cu atenție pentru cazurile nefavorabile.
+    \item Merge Sort este fiabil și stabil, ideal pentru date mari și sortare externă.
+\end{itemize}
+
+\section*{Anexă: Cod sursă (fragment)}
+
+\begin{verbatim}
+void bubbleSort(int arr[], int n) {
+    bool swapped;
+    for (int i = 0; i < n-1; i++) {
+        swapped = false;
+        for (int j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                std::swap(arr[j], arr[j+1]);
+                swapped = true;
+            }
+        }
+        if (!swapped)
+            break;
+    }
+}
+\end{verbatim}
+
+\end{document}
