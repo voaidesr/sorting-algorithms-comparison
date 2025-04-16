@@ -1,4 +1,4 @@
-#include "merge_sort.h"
+#include "../include/merge_sort.h"
 
 void mergeSort(std::vector<int>& v) {
     if (v.size() <= 1) return;

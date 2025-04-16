@@ -1,4 +1,4 @@
-#include "radix_sort.h"
+#include "../include/radix_sort.h"
 #include <algorithm>
 
 void radixSortBase10(std::vector<int>& v) {
@@ -27,7 +27,7 @@ void radixSortBasePow2(std::vector<int>& v, const int exp2) {
     int base = 1 << exp2;
     for (int exp = 0; (maxVal >> exp) > 0; exp += exp2) {
         std::vector<int> output(v.size());
-        int count[base] = {0};
+        std::vector<int> count = {0};
 
         for (size_t i = 0; i < v.size(); i++)
             count[(v[i] >> exp) & (base - 1)]++;

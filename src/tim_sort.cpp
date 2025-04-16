@@ -1,6 +1,4 @@
-#include "tim_sort.h"
-#include <algorithm>
-#include <vector>
+#include "../include/tim_sort.h"
 
 const int MIN_RUN = 32;
 

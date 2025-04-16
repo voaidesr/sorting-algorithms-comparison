@@ -1,16 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 #include <map>
 #include <functional>
-#include "merge_sort.h"
-#include "quick_sort.h"
-#include "radix_sort.h"
-#include "intro_sort.h"
-#include "test_utils.h"
-#include "shell_sort.h"
-#include "tim_sort.h"
+#include "../include/merge_sort.h"
+#include "../include/quick_sort.h"
+#include "../include/radix_sort.h"
+#include "../include/intro_sort.h"
+#include "../include/test_utils.h"
+#include "../include/shell_sort.h"
+#include "../include/tim_sort.h"
 
 std::map<std::string, std::function<void(std::vector<int>&)>> sort_map = {
     {"quickSortHalfPivot", quickSortHalfPivot},
