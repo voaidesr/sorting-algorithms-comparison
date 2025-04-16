@@ -62,7 +62,6 @@ void quickSortMedianPivot(std::vector<int>& v, int left, int right) {
 void quickSortRandomPivot(std::vector<int>& v, int left, int right) {
     if (left >= right) return;
 
-    std::srand(std::time(0));
     size_t randomIndex = left + std::rand() % (right - left + 1);
     int pivot = v[randomIndex];
 

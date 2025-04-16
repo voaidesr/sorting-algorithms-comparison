@@ -40,6 +40,9 @@ void printArray(const std::vector<int>& v) {
 }
 
 int main(int argc, char* argv[]) {
+
+    std::srand(std::time(0));
+
     if (argc == 1) {
         // If no arguments are passed, list the available sorts
         printAvailableSorts();

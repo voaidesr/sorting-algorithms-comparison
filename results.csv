@@ -1,3 +1,6 @@
 testname,algorithm,n,maxvalue,time_s,success
-small_test,tim,100000000,10000,7.91397,1
-small_test,quickSortHalfPivot,10000000,10000,2.74478,1
+small_test,quickSortRandomPivot,100000000,10000,29.1364,1
+small_test,quickSortHalfPivot,100000000,10000,4.3825,1
+small_test,ternaryQuickSort,100000000,10000,4.40663,1
+small_test,tim,100000000,10000,7.84494,1
+small_test,radix10,100000000,10000,2.28279,1
