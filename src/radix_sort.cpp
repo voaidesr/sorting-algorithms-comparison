@@ -25,9 +25,9 @@ void radixSortBase10(std::vector<int>& v) {
 void radixSortBasePow2(std::vector<int>& v, const int exp2) {
     int maxVal = *std::max_element(v.begin(), v.end());
     int base = 1 << exp2;
-    for (int exp = 0; (maxVal >> exp) > 0; exp += exp2) {
+    for (int exp = 0; exp < 32; exp += exp2) {
         std::vector<int> output(v.size());
-        std::vector<int> count = {0};
+        std::vector<int> count(base, 0);
 
         for (size_t i = 0; i < v.size(); i++)
             count[(v[i] >> exp) & (base - 1)]++;
