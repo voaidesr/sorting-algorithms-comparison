@@ -1,34 +1,34 @@
-#include "quick_sort.h"
+#include "../include/quick_sort.h"
 
 // This version of quickSort selects the middle element as the pivot and partitions the array into two halves.
-void quickSortHalfPivot(std::vector<int>& v) {
-    if (v.size() <= 1) return;
+void quickSortHalfPivot(std::vector<int>& v, int left, int right) {
+    if (left >= right) return;
 
-    int pivot = v[v.size() / 2];
-    std::vector<int> left, right;
+    int pivot = v[(left + right) / 2];
+    int i = left, j = right;
 
-    for (size_t i = 0; i < v.size(); ++i) {
-        if (i == v.size() / 2) continue;
-        if (v[i] < pivot) left.push_back(v[i]);
-        else right.push_back(v[i]);
+    while (i <= j) {
+        while (v[i] < pivot) i++;
+        while (v[j] > pivot) j--;
+
+        if (i <= j) {
+            std::swap(v[i], v[j]);
+            i++;
+            j--;
+        }
     }
 
-    quickSortHalfPivot(left);
-    quickSortHalfPivot(right);
-
-    v.clear();
-    v.insert(v.end(), left.begin(), left.end());
-    v.push_back(pivot);
-    v.insert(v.end(), right.begin(), right.end());
+    quickSortHalfPivot(v, left, j);
+    quickSortHalfPivot(v, i, right);
 }
 
 // This version of quickSort selects the median of the first, middle, and last elements as the pivot.
-void quickSortMedianPivot(std::vector<int>& v) {
-    if (v.size() <= 1) return;
+void quickSortMedianPivot(std::vector<int>& v, int left, int right) {
+    if (left >= right) return;
 
-    int first = v[0];
-    int middle = v[v.size() / 2];
-    int last = v[v.size() - 1];
+    int first = v[left];
+    int middle = v[(left + right) / 2];
+    int last = v[right];
 
     int pivot;
     if ((first < middle && middle < last) || (last < middle && middle < first)) {
@@ -39,70 +39,78 @@ void quickSortMedianPivot(std::vector<int>& v) {
         pivot = last;
     }
 
-    std::vector<int> left, right;
+    int i = left, j = right;
 
-    for (size_t i = 0; i < v.size(); ++i) {
-        if (v[i] == pivot) continue;
-        if (v[i] < pivot) left.push_back(v[i]);
-        else right.push_back(v[i]);
+    while (i <= j) {
+        while (v[i] < pivot) i++;
+        while (v[j] > pivot) j--;
+
+        if (i <= j) {
+            std::swap(v[i], v[j]);
+            i++;
+            j--;
+        }
     }
 
-    quickSortMedianPivot(left);
-    quickSortMedianPivot(right);
-
-    v.clear();
-    v.insert(v.end(), left.begin(), left.end());
-    v.push_back(pivot);
-    v.insert(v.end(), right.begin(), right.end());
+    quickSortMedianPivot(v, left, j);
+    quickSortMedianPivot(v, i, right);
 }
 
 // This version of quickSort selects a random element as the pivot.
 #include <cstdlib>
 #include <ctime>
-void quickSortRandomPivot(std::vector<int>& v) {
-    if (v.size() <= 1) return;
+void quickSortRandomPivot(std::vector<int>& v, int left, int right) {
+    if (left >= right) return;
 
-    std::srand(std::time(0));   // srand could also be done by chrono::system_clock::now().time_since_epoch().count()
-    size_t randomIndex = std::rand() % v.size();
+    std::srand(std::time(0));
+    size_t randomIndex = left + std::rand() % (right - left + 1);
     int pivot = v[randomIndex];
 
-    std::vector<int> left, right;
+    int i = left, j = right;
 
-    for (size_t i = 0; i < v.size(); ++i) {
-        if (i == randomIndex) continue;
-        if (v[i] < pivot) left.push_back(v[i]);
-        else right.push_back(v[i]);
+    while (i <= j) {
+        while (v[i] < pivot) i++;
+        while (v[j] > pivot) j--;
+
+        if (i <= j) {
+            std::swap(v[i], v[j]);
+            i++;
+            j--;
+        }
     }
 
-    quickSortRandomPivot(left);
-    quickSortRandomPivot(right);
-
-    v.clear();
-    v.insert(v.end(), left.begin(), left.end());
-    v.push_back(pivot);
-    v.insert(v.end(), right.begin(), right.end());
+    quickSortRandomPivot(v, left, j);
+    quickSortRandomPivot(v, i, right);
 }
 
 // This version of quickSort uses a ternary partitioning scheme.
 // It divides the array into three parts: less than, equal to, and greater than the pivot.
 // Credits to https://catalin.francu.com/ for teaching me this algorithm.
-void ternaryQuickSort(std::vector<int>& v) {
-    if (v.size() <= 1) return;
+void ternaryQuickSort(std::vector<int>& v, int left, int right) {
+    if (left >= right) return;
 
-    int pivot = v[v.size() / 2];
-    std::vector<int> left, middle, right;
+    int pivot = v[(left + right) / 2];
+    int i = left, j = left, k = right;
 
-    for (size_t i = 0; i < v.size(); ++i) {
-        if (v[i] < pivot) left.push_back(v[i]);
-        else if (v[i] == pivot) middle.push_back(v[i]);
-        else right.push_back(v[i]);
+    while (j <= k) {
+        if (v[j] < pivot) {
+            std::swap(v[i], v[j]);
+            i++;
+            j++;
+        } else if (v[j] > pivot) {
+            std::swap(v[j], v[k]);
+            k--;
+        } else {
+            j++;
+        }
     }
 
-    ternaryQuickSort(left);
-    ternaryQuickSort(right);
-
-    v.clear();
-    v.insert(v.end(), left.begin(), left.end());
-    v.insert(v.end(), middle.begin(), middle.end());
-    v.insert(v.end(), right.begin(), right.end());
+    ternaryQuickSort(v, left, i - 1);
+    ternaryQuickSort(v, k + 1, right);
 }
+
+// Wrapper functions
+void quickSortHalfPivot(std::vector<int> &v) { quickSortHalfPivot(v, 0, v.size() - 1); }
+void quickSortMedianPivot(std::vector<int> &v) { quickSortMedianPivot(v, 0, v.size() - 1); }
+void quickSortRandomPivot(std::vector<int> &v) { quickSortRandomPivot(v, 0, v.size() - 1); }
+void ternaryQuickSort(std::vector<int> &v) { ternaryQuickSort(v, 0, v.size() - 1); }

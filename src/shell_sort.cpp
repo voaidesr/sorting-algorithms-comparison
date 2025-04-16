@@ -1,5 +1,4 @@
-#include "shell_sort.h"
-#include <algorithm>
+#include "../include/shell_sort.h"
 
 void shellsort(std::vector<int>& v) {
     int n = v.size();
