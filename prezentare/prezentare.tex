@@ -112,17 +112,60 @@ Fiecare algoritm este rulat o singură dată per configurație, iar logica poate
 
 \section{Rezultate experimentale}
 
+\subsection{Numere putine, valori dense}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_022149.png} % Replace with your image file path and name
+    \caption{Pentru 1000 de numere si valori intre 0 si $10^3$}
+\end{figure}
 \subsection{Numere putine, valori dispersate}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{./img/img_20250417_020108.png} % Replace with your image file path and name
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_022311.png} % Replace with your image file path and name
     \caption{Pentru 1000 de numere si valori intre 0 si $10^9$}
 \end{figure}
-
-
-
-
-
+\subsection{Numere multe, valori dense}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_022351.png} % Replace with your image file path and name
+    \caption{Pentru $10^6$ numere si valori intre 0 si $10^3$}
+\end{figure}
+\subsection{Numere multe, valori dispersate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_022431.png} % Replace with your image file path and name
+    \caption{Pentru $10^6$ numere si valori intre 0 si $10^9$}
+\end{figure}
+\subsection{Numere mai multe, valori dense}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_022629.png} % Replace with your image file path and name
+    \caption{Pentru $10^8$ numere si valori intre 0 si $10^3$}
+\end{figure}
+\subsection{Numere mai multe, valori dispersate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_022859.png} % Replace with your image file path and name
+    \caption{Pentru $10^8$ numere si valori intre 0 si $10^9$}
+\end{figure}
+\subsection{Numere mai multe, o singura valoare}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_023613.png} % Replace with your image file path and name
+    \caption{Pentru $10^8$ numere egale cu 0}
+\end{figure}
+\subsection{Numere mai multe, 2 valori}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_023757.png} % Replace with your image file path and name
+    \caption{Pentru $10^8$ numere egale cu 0 sau 1}
+\end{figure}
+\subsection{Numere mai multe, 11 valori}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./img/img_20250417_023946.png} % Replace with your image file path and name
+    \caption{Pentru $10^8$ numere egale cu numere de la 0 la 10}
+\end{figure}
 
 \section{Concluzii}
 
@@ -131,24 +174,5 @@ Fiecare algoritm este rulat o singură dată per configurație, iar logica poate
     \item Quick Sort este ideal pentru cazuri generale, dar trebuie tratat cu atenție pentru cazurile nefavorabile.
     \item Merge Sort este fiabil și stabil, ideal pentru date mari și sortare externă.
 \end{itemize}
-
-\section*{Anexă: Cod sursă (fragment)}
-
-\begin{verbatim}
-void bubbleSort(int arr[], int n) {
-    bool swapped;
-    for (int i = 0; i < n-1; i++) {
-        swapped = false;
-        for (int j = 0; j < n-i-1; j++) {
-            if (arr[j] > arr[j+1]) {
-                std::swap(arr[j], arr[j+1]);
-                swapped = true;
-            }
-        }
-        if (!swapped)
-            break;
-    }
-}
-\end{verbatim}
 
 \end{document}
