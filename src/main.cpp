@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <algorithm>
 #include "../include/merge_sort.h"
 #include "../include/quick_sort.h"
 #include "../include/radix_sort.h"
@@ -22,7 +23,8 @@ std::map<std::string, std::function<void(std::vector<int>&)>> sort_map = {
     {"radix65536", radixSortBase65536},
     {"intro", introSort},
     {"shell", shellsort},
-    {"tim", timsort}
+    {"tim", timsort},
+    {"stl", [](std::vector<int>& v) { std::sort(v.begin(), v.end()); }},
 };
 
 void printAvailableSorts() {

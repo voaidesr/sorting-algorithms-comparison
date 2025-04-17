@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1744844927.01792 "/home/voaidesr/academic/facultate/SD/sorting-algorithms-comparison/prezentare/prezentare.tex" "prezentare.pdf" "prezentare" 1744844927.40762 0
-  "/home/voaidesr/academic/facultate/SD/sorting-algorithms-comparison/prezentare/prezentare.tex" 1744844926.47558 5955 87dfe400243a43be4818923fc401b599 ""
+["pdflatex"] 1744873633.09049 "/home/voaidesr/academic/facultate/SD/sorting-algorithms-comparison/prezentare/prezentare.tex" "prezentare.pdf" "prezentare" 1744873633.73719 0
+  "/home/voaidesr/academic/facultate/SD/sorting-algorithms-comparison/prezentare/prezentare.tex" 1744873632.92175 8936 7a76e498405678f37845d28275af7000 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -121,11 +121,19 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1721433600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1742499799.77698 4602615 ac1019cb4c4ba39710c2cf7f752b378d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1742499407 7753791 b80c0427d2d9bb51af53b735c3f60758 ""
-  "img/img_20250417_020108.png" 1744844468.0826 34500 ebee0aed4e3b692a5f3b45d0dc63607c ""
-  "prezentare.aux" 1744844927.35239 1937 6e9f2abae0e350c7fa6eebc3834d0ff6 "pdflatex"
-  "prezentare.out" 1744844927.35239 1153 0b6ea9fd8ffca1c569e11d57d7c38810 "pdflatex"
-  "prezentare.tex" 1744844926.47558 5955 87dfe400243a43be4818923fc401b599 ""
-  "prezentare.toc" 1744844927.3539 645 b81bab4efeb84dc0295cdfa8600d96c0 "pdflatex"
+  "img/img_20250417_022149.png" 1744873074.25291 29583 00e699dffc8f8fdddeae7308f0b4e7c0 ""
+  "img/img_20250417_022311.png" 1744873074.25291 29339 966a9c73c24b12292d5cae88acf13ad9 ""
+  "img/img_20250417_022351.png" 1744873074.25291 30483 9d860f44bca0bda59f7b03004a2612e0 ""
+  "img/img_20250417_022431.png" 1744873074.25391 29949 2968746c3990a224205390be6ef22dda ""
+  "img/img_20250417_022629.png" 1744873074.25391 29509 2206b3bcc5947235f0d43b8dbb957647 ""
+  "img/img_20250417_022859.png" 1744873074.25391 30744 a6e7caf0050e56193bb5f9fd06784fd3 ""
+  "img/img_20250417_023613.png" 1744873074.25391 29311 aefb3f9a2b013d60a4b52fe3348b5424 ""
+  "img/img_20250417_023757.png" 1744873074.25391 29152 734ba106dacdbcd303745070ae242719 ""
+  "img/img_20250417_023946.png" 1744873074.25391 30008 4c4ef386b5f1c015dae0ca23493c1014 ""
+  "prezentare.aux" 1744873633.67476 4399 d3f6a2b1ccd5ee6d4b1236ec8e46855a "pdflatex"
+  "prezentare.out" 1744873633.67476 2891 54830c1d7725cd6336cc520e7f3f2e18 "pdflatex"
+  "prezentare.tex" 1744873632.92175 8936 7a76e498405678f37845d28275af7000 ""
+  "prezentare.toc" 1744873633.67578 1410 d7afe377007852d5ed0312f8e79f76d1 "pdflatex"
   (generated)
   "prezentare.aux"
   "prezentare.log"

@@ -50,7 +50,7 @@ namespace {
             introSortUtil(v, pivotIndex + 1, end, depthLimit - 1);
         }
     }
-} // anonymous namespace
+}
 
 void introSort(std::vector<int>& v) {
     int depthLimit = 2 * std::log2(v.size());

@@ -1,2 +1,2 @@
 nameoftest,numberofvalues,maxvalue
-few_numbers_many_values,100000000,10
+few_numbers_many_values,10,1000000000

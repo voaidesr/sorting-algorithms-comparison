@@ -169,10 +169,13 @@ Fiecare algoritm este rulat o singură dată per configurație, iar logica poate
 
 \section{Concluzii}
 
-\begin{itemize}
-    \item Algoritmii simpli sunt potriviți doar pentru seturi mici de date.
-    \item Quick Sort este ideal pentru cazuri generale, dar trebuie tratat cu atenție pentru cazurile nefavorabile.
-    \item Merge Sort este fiabil și stabil, ideal pentru date mari și sortare externă.
-\end{itemize}
+\begin{justify}
+        Analiza comparativă a evidențiat diferențe semnificative între algoritmii de sortare, atât în ceea ce privește complexitatea teoretică, cât și comportamentul practic în diverse scenarii. Quick Sort, în variantele sale, a demonstrat performanțe bune în medie, însă sensibilitatea la alegerea pivotului poate conduce la cazuri nefavorabile, în special pentru date deja parțial sortate sau cu distribuții neuniforme.
+
+Radix Sort s-a remarcat ca fiind extrem de eficient pentru date numerice cu valori mici și dense, mai ales în variantele cu baze mari, dar depinde de specificul datelor și nu este o soluție universală. Merge Sort și Tim Sort s-au dovedit a fi opțiuni robuste și stabile, potrivite pentru sortări sigure și consistente indiferent de structura datelor. Tim Sort, în particular, a excelat în cazurile în care datele conțineau subsecvențe deja sortate, beneficiind de optimizările sale adaptative.
+
+Shell Sort a avut performanțe intermediare, dar inconsistente, fiind mai puțin recomandat pentru seturi de date mari. În schimb, algoritmi hibrizi precum Intro Sort combină eficiența și siguranța, fiind potriviți în aplicații generale unde este nevoie de control asupra timpului de execuție și de evitare a celor mai nefavorabile cazuri.
+
+În concluzie, alegerea algoritmului de sortare trebuie realizată în funcție de natura și dimensiunea datelor de intrare, precum și de cerințele specifice ale aplicației: timp de execuție, stabilitate, sau complexitate în implementare. \end{justify}
 
 \end{document}
